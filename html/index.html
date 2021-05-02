@@ -8,17 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="stylesheet.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script>
-            function submitToAPI(e) {
-            e.preventDefault();
-            var URL = "https://9651321x46.execute-api.ap-south-1.amazonaws.com/default/MyWays-search";
-            var uid = /[0-9]/;
-            if (!uid.test($("#search").val())) {
-                alert ("Please enter valid candidate number!");
-                return;
-            }
-        }
-        </script>
     </head>
     <body>
         <div id="first">
