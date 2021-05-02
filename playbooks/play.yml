@@ -24,17 +24,27 @@
   - name: Start httpd services
     service:
       name: httpd
-      enables: yes
+      enabled: yes
       state: started
 
   - name: copy frontend code
     copy:
       src: html
-      dest: /var/www/html
-      setype: http_sys_content_t
+      dest: /var/www/
+      setype: httpd_sys_content_t
 
-  - name: copy backend code
+  - name: copy backend create code
     template:
-      src: cgi-bin
-      dest: /var/www/cgi-bin
-      setype: http_sys_content_t
+      src: create.py
+      dest: '/var/www/cgi-bin/'
+      setype: httpd_sys_content_t
+
+  - name: copy backend search code
+    template:
+      src: search.py
+      dest: '/var/www/cgi-bin/'
+
+  - name: copy backend delete code
+    template:
+      src: delete.py
+      dest: '/var/www/cgi-bin'
