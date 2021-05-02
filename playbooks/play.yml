@@ -31,8 +31,10 @@
     copy:
       src: html
       dest: /var/www/html
+      setype: http_sys_content_t
 
   - name: copy backend code
     template:
       src: cgi-bin
-      desst: /var/www/cgi-bin
+      dest: /var/www/cgi-bin
+      setype: http_sys_content_t
