@@ -7,7 +7,7 @@ form = cgi.FieldStorage()
 c_key = form.getvalue('id')
 name = form.getvalue('name')
 desc = form.getvalue('description')
-url = 'https://9651321x46.execute-api.ap-south-1.amazonaws.com/default/MyWays-create?id='
+url = '{{ create_api_endpoint }}?id='
 
 url = url+c_key + '&name=' + name + '&description=' + desc
 res = requests.get(url)
