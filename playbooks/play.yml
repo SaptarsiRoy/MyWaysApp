@@ -5,7 +5,7 @@
   tasks:
   - name: change permissoin of the generated key
     file:
-      path: "../modules/ec2/myways.pem"
+      path: "./myways.pem"
       owner: "{{ lookup('env', 'USER') }}"
       mode: 0400
 
