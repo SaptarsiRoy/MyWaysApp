@@ -1,0 +1,38 @@
+---
+- name: Change permission of the key
+  hosts: localhost
+  become: no
+  tasks:
+  - name: change permissoin of the generated key
+    file:
+      path: "../modules/ec2/myways.pem"
+      owner: "{{ lookup('env', 'USER') }}"
+      mode: 0400
+
+- name: Create backend configuration
+  hosts: tag_Name_webos
+  vars_files:
+  - var.yml
+  tasks:
+  - name: check if httpd and python packages are present or not
+    yum:
+      name: 
+        - httpd
+        - python3
+      state: present
+  
+  - name: Start httpd services
+    service:
+      name: httpd
+      enables: yes
+      state: started
+
+  - name: copy frontend code
+    copy:
+      src: html
+      dest: /var/www/html
+
+  - name: copy backend code
+    template:
+      src: cgi-bin
+      desst: /var/www/cgi-bin
