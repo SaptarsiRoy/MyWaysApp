@@ -6,7 +6,7 @@ import requests
 form = cgi.FieldStorage()
 c_key = form.getvalue('id')
 name = form.getvalue('name')
-desc = form.getvalue('description')
+desc = str(form.getvalue('description'))
 url = '{{ create_api_endpoint }}?id='
 url = url+c_key + '&name=' + name + '&description=' + desc
 res = requests.get(url)
