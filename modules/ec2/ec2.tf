@@ -40,7 +40,7 @@ resource "aws_key_pair" "generated_key" {
 //Saving Private Key PEM File
 resource "local_file" "key-file" {
   content  = tls_private_key.tls_key.private_key_pem
-  filename = "myways.pem"
+  filename = "../../playbooks/myways.pem"
 
   depends_on = [
     tls_private_key.tls_key
