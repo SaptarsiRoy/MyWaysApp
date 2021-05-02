@@ -10,16 +10,6 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
     type = "S"
   }
 
-  attribute {
-    name = "Name"
-    type = "S"
-  }
-
-  attribute {
-    name = "description"
-    type = "S"
-  }
-
   ttl {
     attribute_name = "TimeToExist"
     enabled        = false
