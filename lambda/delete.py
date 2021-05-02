@@ -24,5 +24,5 @@ def lambda_handler(event, context):
                 x = "Candidate Deleted Successfully"
     return {
         'statusCode': 200,
-        'body': json.dumps(x)
+        'body': x
     }
